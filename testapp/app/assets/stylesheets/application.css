@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ 
+ */
+body{
+				background-color: #680000 ;	
+				}
+
+				table {
+				height:550px;
+				width:550px;
+				background-color:rgb(149,78,78);
+				border-radius: 13px;
+				opacity: .8;
+				}
+
+				td {
+				background-color:0E8E3D;
+				border-radius:1000px;
+				border:2px solid #280000 ;
+				}
+
+				.adjustButton1, .adjustButton2, .adjustButton3, 
+				.adjustButton4, .adjustButton5, .adjustButton6,
+				.adjustButton7{
+					position:relative;
+					background-color:#006633 ;
+					color:330000;
+					font:13pt Arial, sans-serif bold;
+					border-radius:5;
+					border-color:#500000 ;
+				}
+
+				.adjustButton1{
+					left:415px;
+				}
+				
+				.adjustButton2{
+					left:440px;
+				}
+				
+				.adjustButton3{
+					left:465px;
+				}
+				
+				.adjustButton4{
+					left:490px;
+				}
+				
+				.adjustButton5{
+					left:515px;
+				}
+				
+				.adjustButton6{
+					left:540px;
+				}
+				
+				.adjustButton7{
+					left:565px;
+				}
+				
+				
