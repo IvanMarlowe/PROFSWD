@@ -13,11 +13,34 @@
  *= require_tree .
  *= require_self
  */
-body{
+				body{
 				background-color: #680000 ;	
 				}
-
-				table {
+				
+				#instructions{
+					position:absolute;
+					top:150px;
+					left:300px;
+				}
+				
+				#trOne, #trTwo{
+				border-radius:50px;
+				color:#280000;
+				font-size:11pt;
+				height:50px;
+				width:50px;
+				border-width:0px;
+				}
+				
+				#trOne{
+					background-color:#CCFF99;
+				}
+				
+				#trTwo{
+					background-color:#669900;
+				}
+				
+				#tableMain {
 				height:550px;
 				width:550px;
 				background-color:rgb(149,78,78);
@@ -33,7 +56,7 @@ body{
 
 				.adjustButton1, .adjustButton2, .adjustButton3, 
 				.adjustButton4, .adjustButton5, .adjustButton6,
-				.adjustButton7{
+				.adjustButton7, .adjustButton8{
 					position:relative;
 					background-color:#006633 ;
 					color:330000;
@@ -68,5 +91,10 @@ body{
 				
 				.adjustButton7{
 					left:565px;
+				}
+				
+				.adjustButton8{
+					left:650px;
+					bottom:-10px;
 				}
 				

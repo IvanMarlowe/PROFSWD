@@ -14,29 +14,40 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-var tableArr = new Array(6);
+				var tableArr = new Array(6);
 				var tableTemp = new Array(6);
 				var isFull = [0, 0, 0, 0, 0, 0, 0];
 				var playernum = 1;
 				var winspecs = 0;
 				
-				for(var x = 0; x < 6; x++){
-					tableArr[x] = new Array(7);
-				}	
+				createArray();
+				initArray();
+				initTempTable();
 				
-				for(var y = 0; y < 6; y++)
-					for(var x= 0; x < 7; x++)
-						tableArr[y][x] = 0;
+				function createArray(){
+					for(var x = 0; x < 6; x++){
+						tableArr[x] = new Array(7);
+					}	
+				}
 				
-				for(var x = 0; x < 7; x++)
-					tableTemp[x] = 5;
+				function initArray(){
+					for(var y = 0; y < 6; y++)
+						for(var x= 0; x < 7; x++)
+							tableArr[y][x] = 0;
+				}
+				
+				function initTempTable(){
+					for(var x = 0; x < 7; x++)
+						tableTemp[x] = 5;
+				}
 				
 				function determineColor(player){
 					if(player == 1)
 						color = "#CCFF99";
 					else if(player == 2)
 						color = "#669900";
-					
+					else if(player == 3)
+						color = "0E8E3D";
 					return color;
 				}
 				
@@ -68,14 +79,28 @@ var tableArr = new Array(6);
 							isFull[tablex] = 1;
 						var isWinPlayer1 = isWinPlayer(1);
 						var isWinPlayer2 = isWinPlayer(2);
-						if(isWinPlayer1 == 1)
+						if(isWinPlayer1 == 1){
 							alert("Player 1 Wins!");
-						else if(isWinPlayer2 == 1)
+							disableButtons();
+						}
+						else if(isWinPlayer2 == 1){
 							alert("Player 2 Wins!");
+							disableButtons();
+						}
 						switchPlayer(playernum);
 					}
 				}
-
+				
+				function disableButtons(){
+					document.getElementById("0").disabled = true; 
+					document.getElementById("1").disabled = true; 
+					document.getElementById("2").disabled = true; 
+					document.getElementById("3").disabled = true; 
+					document.getElementById("4").disabled = true; 
+					document.getElementById("5").disabled = true; 
+					document.getElementById("6").disabled = true; 
+				}
+				
 				function conditionOne(playerType){
 					for(var y = 0; y < 6; y++){
 						for(var x = 0; x < 7; x++){
@@ -184,18 +209,35 @@ var tableArr = new Array(6);
 					else
 						winspecs = 0;
 				}
-					
-				function writeTable(){
-					for(y=0; y< 6; y++){
-						for(x=0; x< 7; x++){
-						document.write(tableArr[y][x]);
-						document.write("&nbsp;")
+				
+				function rePaint(){
+					for(var y = 0; y < 6; y++){
+						for(var x = 0; x < 7; x++){	
+							getSpecificIndex(x, y, 3);
 						}
-						document.write("<br>");
 					}
-					document.write("<br>");
 				}
-
+					
+				function enableDrop(){
+					document.getElementById("0").disabled = false; 
+					document.getElementById("1").disabled = false; 
+					document.getElementById("2").disabled = false; 
+					document.getElementById("3").disabled = false; 
+					document.getElementById("4").disabled = false; 
+					document.getElementById("5").disabled = false; 
+					document.getElementById("6").disabled = false; 
+				}	
+				
+				function gameReset(){
+					rePaint();
+					createArray();
+					initArray();
+					initTempTable();
+					isFull = [0, 0, 0, 0, 0, 0, 0];
+					playernum = 1;
+					winspecs = 0;
+				}
+				
 				function clickDrop(clicked_id){
 					if(playernum == 1){
 						doColor(1, Number(clicked_id));
